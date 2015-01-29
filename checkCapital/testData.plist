@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>rzID</key>
+		<string>RZ030100001</string>
+		<key>assetID</key>
+		<string>电气类</string>
+		<key>assetName</key>
+		<string>照明配电箱</string>
+		<key>assetKind</key>
+		<string>XGM</string>
+		<key>unit</key>
+		<string>台</string>
+		<key>number</key>
+		<string>1</string>
+		<key>location</key>
+		<string>地下室</string>
+		<key>manufacturer</key>
+		<string>廊坊通汇电气</string>
+		<key>assetCondition</key>
+		<string>完好</string>
+	</dict>
+</array>
+</plist>
