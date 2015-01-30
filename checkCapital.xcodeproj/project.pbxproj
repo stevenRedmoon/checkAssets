@@ -29,6 +29,8 @@
 		2427BDC81A79D57600AE63ED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2427BDC71A79D57600AE63ED /* MBProgressHUD.m */; };
 		2427BDCD1A79FA5700AE63ED /* RZDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2427BDCC1A79FA5700AE63ED /* RZDetailViewController.m */; };
 		24333B8B1A77D963005BF908 /* RZCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24333B8A1A77D963005BF908 /* RZCardModel.m */; };
+		2435F1171A7A13A8001D625A /* RZInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2435F1161A7A13A8001D625A /* RZInventoryViewController.m */; };
+		2435F11A1A7A14CE001D625A /* RZHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2435F1191A7A14CE001D625A /* RZHTTPManager.m */; };
 		24B925831A71FABD00DB787F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B925821A71FABD00DB787F /* main.m */; };
 		24B925861A71FABD00DB787F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B925851A71FABD00DB787F /* AppDelegate.m */; };
 		24B925891A71FABD00DB787F /* RZScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B925881A71FABD00DB787F /* RZScanViewController.m */; };
@@ -101,6 +103,10 @@
 		2427BDCC1A79FA5700AE63ED /* RZDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZDetailViewController.m; sourceTree = "<group>"; };
 		24333B891A77D963005BF908 /* RZCardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZCardModel.h; sourceTree = "<group>"; };
 		24333B8A1A77D963005BF908 /* RZCardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZCardModel.m; sourceTree = "<group>"; };
+		2435F1151A7A13A8001D625A /* RZInventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZInventoryViewController.h; sourceTree = "<group>"; };
+		2435F1161A7A13A8001D625A /* RZInventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZInventoryViewController.m; sourceTree = "<group>"; };
+		2435F1181A7A14CE001D625A /* RZHTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZHTTPManager.h; sourceTree = "<group>"; };
+		2435F1191A7A14CE001D625A /* RZHTTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZHTTPManager.m; sourceTree = "<group>"; };
 		24B9257D1A71FABD00DB787F /* checkCapital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkCapital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B925811A71FABD00DB787F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24B925821A71FABD00DB787F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -198,6 +204,10 @@
 				241110311A777F4C00D4C72A /* RZQuerySearchViewController.m */,
 				2427BDCB1A79FA5700AE63ED /* RZDetailViewController.h */,
 				2427BDCC1A79FA5700AE63ED /* RZDetailViewController.m */,
+				2435F1151A7A13A8001D625A /* RZInventoryViewController.h */,
+				2435F1161A7A13A8001D625A /* RZInventoryViewController.m */,
+				2435F1181A7A14CE001D625A /* RZHTTPManager.h */,
+				2435F1191A7A14CE001D625A /* RZHTTPManager.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -526,10 +536,12 @@
 				2427BDB01A79C1CF00AE63ED /* ASIInputStream.m in Sources */,
 				2427BDC81A79D57600AE63ED /* MBProgressHUD.m in Sources */,
 				2427BDAF1A79C1CF00AE63ED /* ASIHTTPRequest.m in Sources */,
+				2435F11A1A7A14CE001D625A /* RZHTTPManager.m in Sources */,
 				241110271A775D0700D4C72A /* RZLoginViewController.m in Sources */,
 				2427BDAE1A79C1CF00AE63ED /* ASIFormDataRequest.m in Sources */,
 				2427BDCD1A79FA5700AE63ED /* RZDetailViewController.m in Sources */,
 				2427BDB51A79C1EA00AE63ED /* Reachability.m in Sources */,
+				2435F1171A7A13A8001D625A /* RZInventoryViewController.m in Sources */,
 				2427BDAD1A79C1CF00AE63ED /* ASIDownloadCache.m in Sources */,
 				2411102F1A77719C00D4C72A /* RZIndexViewController.m in Sources */,
 				24B925831A71FABD00DB787F /* main.m in Sources */,

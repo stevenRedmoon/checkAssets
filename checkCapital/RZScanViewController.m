@@ -5,42 +5,24 @@
 //  Created by redmoon on 1/23/15.
 //  Copyright (c) 2015 redmoon. All rights reserved.
 //
-
+#define kServerPath @"http://bbs.unpcn.com/attachment.aspx?attachmentid=3639033"
 #import "RZScanViewController.h"
 #import "ASIHTTPRequest.h"
 #import "macro.h"
 #import "RZDetailViewController.h"
+#import "MBProgressHUD.h"
+#import "RZHTTPManager.h"
 
-#define kServerPath @"http://bbs.unpcn.com/attachment.aspx?attachmentid=3639033"
-#define kDestControllerName @"RZDetailViewController"
-@interface RZScanViewController ()<ASIHTTPRequestDelegate>
+@interface RZScanViewController ()<ASIHTTPRequestDelegate,MBProgressHUDDelegate>
+@property (strong, nonatomic)RZHTTPManager *httpManager;
 @property (weak, nonatomic) IBOutlet UITextField *BarCode;
 @property (strong, nonatomic)NSMutableData *receiveData;
 @end
 
 @implementation RZScanViewController
-#pragma mark -delegate for scanner
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    id<NSFastEnumeration> results = [info objectForKey:ZBarReaderControllerResults];
-    ZBarSymbol *symbol = nil;
-    for (symbol in results) {
-        break;
-    }
-    NSLog(@"success scan!");
-
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    self.BarCode.text = symbol.data;
-    [self input:nil];
-}
-
-
-- (IBAction)cancelFirstResponder {
-    [self.view endEditing:YES];
-}
 
 - (IBAction)scanner:(id)sender {
-    //DLog(@"scanner");
+    DLog(@"scanner");
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
     reader.readerDelegate = self;
     ZBarImageScanner *scanner = reader.scanner;
@@ -50,53 +32,53 @@
     
     [self presentViewController:reader animated:YES completion:nil];
 }
+
 - (IBAction)input:(id)sender {
-    
-    NSLog(@"ok BTN");
-    NSMutableString *url = [[NSMutableString alloc]initWithString:kServerPath];
-    [url appendFormat:@"%@",self.BarCode.text];
-    [self grabURLInBackground:url];
-    
-    
-    
-}
-
-#pragma mark -create an asynchronous request
--(void)grabURLInBackground:(NSString *) formatURL{
-    NSURL *url = [NSURL URLWithString:formatURL];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setDelegate:self];
-    [request startAsynchronous];
-    
-}
-
-#pragma mark -ASIHttp-delegate method
--(void)requestFinished:(ASIHTTPRequest *)request{
-    NSLog(@"finished");
-    // Use when fetching text data
-    //NSString *responseString = [request responseString];
-    
-    RZDetailViewController *detailC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kDestControllerName];
-    
-    [self.navigationController pushViewController:detailC animated:YES];
-
-    detailC.receive = [request responseData];
-    
-}
--(void)requestFailed:(ASIHTTPRequest *)request{
-    NSError *error = [request error];
-    NSLog(@"error:%@",error);
+    DLog(@"");
+    NSMutableString *strM = [NSMutableString stringWithString:kServerPath];
+    self.httpManager.processType = DetailViewController;
+#warning just testing network
+    //    [strM appendString:self.BarCode.text];
+    [self.httpManager grabURLInBackground:strM onView:self.navigationController.view];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.BarCode.keyboardType =UIKeyboardTypeNumberPad;
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+#pragma mark -delegate for scanner
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    id<NSFastEnumeration> results = [info objectForKey:ZBarReaderControllerResults];
+    ZBarSymbol *symbol = nil;
+    for (symbol in results) {
+        break;
+    }
+    DLog(@"success scan!");
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    self.BarCode.text = symbol.data;
+    [self input:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//懒加载
+-(RZHTTPManager*)httpManager{
+    DLog();
+    if (!_httpManager){
+        _httpManager = [[RZHTTPManager alloc]init];
+        _httpManager.processType = UnknowViewController;
+        _httpManager.viewController = self;
+    }
+    
+    return _httpManager;
+}
 
+- (IBAction)cancelFirstResponder {
+    [self.view endEditing:YES];
+}
 @end

@@ -59,7 +59,7 @@
         <!--新建盘点单-->
         <scene sceneID="hGL-74-hgY">
             <objects>
-                <viewController id="nkn-Yn-ZdH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RZInventoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nkn-Yn-ZdH" customClass="RZInventoryViewController" customModule="RZInventoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UhD-4s-cod"/>
                         <viewControllerLayoutGuide type="bottom" id="dlB-LV-gHe"/>
